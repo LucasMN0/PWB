@@ -1,0 +1,21 @@
+.perfil {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+} 
+
+.foto_perfil {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+} 
+
+.bio {
+  max-width: 800px;
+}
+
+body{
+  background-color: #1a1a1a;
+  color: white;
+}
