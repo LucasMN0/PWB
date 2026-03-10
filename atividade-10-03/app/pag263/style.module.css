@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.produto{
+    background-color: green;
+    padding: 15px;
+    text-align: center;
+    color: white;
+}
+
+.produto img{
+    width: 100%;
+    height: auto;
+}
+
+.rodape{
+    background-color: gray;
+    margin-top: 40px;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+}

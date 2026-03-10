@@ -1,0 +1,17 @@
+ .container{
+        display: flex;
+        justify-content: center;
+
+    }
+    body{
+        background-image: url("/Tela_Area_Trabalho.png");
+        background-size: cover;
+
+    }
+    h1.border{
+        size: center;
+        background-color:red;
+        border-width: 2px;
+        border-style: solid;
+        border-color: green;
+    }
