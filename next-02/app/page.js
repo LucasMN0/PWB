@@ -1,16 +1,22 @@
 //import styles from "./page.module.css";
-
+"use client"
 // O @ serve para o React entender que está 
 import MeuBotao from "@/components/MyButton"
 import {MyButton2 as MeuBotao2} from "@/components/MyButton2" //Usamos {nome da função} quando não utilizamos o export 
 // default, e o nome tem que ser igual, pois é nomeado, diferente se vc usar um export default, onde podes mudar o 
 // nome, pois ele exporta a função.
 import MyList from "@/components/MyList";
+import MyPanelButton from "@/components/MyPanelButton";
+import Link from "next/link";
+
+
 export default function Home() {
-  let v = [1, 2, 3, 4, 5];
   return (
     <>
       <h1 className="titulo">Welcome to my app</h1>
+      <hr />
+      <Link href='/MyTodoList'>Lista de Tarefas</Link>
+      <hr />
       <MeuBotao title="Eu sou o botão 1"/>
       <MeuBotao title="Eu sou outro botão 1"/>
       <hr />
@@ -18,6 +24,8 @@ export default function Home() {
       <MeuBotao2 />
       <hr />
       <MyList />
+      <hr />
+      <MyPanelButton />
     </>
     
   );
