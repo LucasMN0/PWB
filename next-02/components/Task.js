@@ -4,7 +4,7 @@ export default function Task({ task, onChange, onDelete, disabled } ){
 function handleDelete(){
     onDelete(task)
 }
-
+// Adicionar o cancelar Edição na description
   const [isEditing, setIsEditing] = useState(false);
   const [newDescription, setNewDescription] = useState(task.description);
 
