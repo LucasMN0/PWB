@@ -1,0 +1,121 @@
+.container {
+  background: #ffd685;
+  padding: 20px;
+  border-radius: 12px;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.forca {
+  margin: 10px auto;
+}
+
+.palavra {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 28px;
+  margin: 20px 0;
+}
+
+.letra {
+  border-bottom: 4px solid #333;
+  width: 30px;
+  text-align: center;
+  font-weight: bold;
+  color: #1e3a8a;
+}
+
+.erros {
+  margin-bottom: 10px;
+}
+
+.letrasBox {
+  margin-bottom: 15px;
+}
+
+.correta {
+  color: green;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.errada {
+  color: red;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.letraCorreta {
+  color: green;
+  margin: 0 4px;
+  font-weight: bold;
+}
+
+.letraErrada {
+  color: red;
+  margin: 0 4px;
+  font-weight: bold;
+}
+
+.inputArea {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.input {
+  width: 50px;
+  text-align: center;
+  padding: 8px;
+  font-size: 18px;
+  border-radius: 6px;
+  border: 2px solid #aaa;
+}
+
+.input:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+.botao {
+  background: #2563eb;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.botao:hover {
+  background: #1d4ed8;
+}
+
+.vitoria {
+  color: green;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.derrota {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.reset {
+  margin-top: 15px;
+  background: #facc15;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.reset:hover {
+  background: #eab308;
+}
