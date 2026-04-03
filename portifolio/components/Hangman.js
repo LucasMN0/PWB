@@ -1,6 +1,6 @@
 "use client";
-// mudar a cor das letras ou a cor de fundo; Está aceitando números; 
 import { useState } from "react";
+import styles from "./Hangman.module.css";
 
 const palavras = [
   "REACT","JAVASCRIPT","PYTHON","ALGORITMO","PROGRAMACAO",
@@ -13,56 +13,37 @@ const palavras = [
 
 export default function Hangman() {
 
-  // Sorteia uma palavra aleatória da lista.
   const novaPalavra = () =>
     palavras[Math.floor(Math.random() * palavras.length)];
 
-  // Palavra atual da rodada.
   const [palavra, setPalavra] = useState(novaPalavra());
-
-  // Guarda as letras já tentadas.
   const [letras, setLetras] = useState([]);
-
-  // Conta os erros do jogador.
   const [erros, setErros] = useState(0);
-
-  // Guarda o valor digitado no input.
   const [entrada, setEntrada] = useState("");
 
-  // Limite máximo de erros.
   const maxErros = 6;
 
   const adivinhar = () => {
-    // Converte para maiúscula e remove espaços.
     const letra = entrada.toUpperCase().trim();
 
-    // Impede entrada vazia.
-    if (!letra) return;
+    if (!letra || letra.length !== 1) return;
 
-    // Impede mais de 1 caractere.
-    if (letra.length !== 1) return;
-
-    // Permite apenas letras de A até Z.
     if (!/^[A-Z]$/.test(letra)) {
       setEntrada("");
       return;
     }
 
-    // Impede repetir letra já usada.
     if (letras.includes(letra)) {
       setEntrada("");
       return;
     }
 
-    // Atualiza a lista de letras usando o estado anterior.
-    setLetras((estadoAnterior) => [...estadoAnterior, letra]);
+    setLetras((prev) => [...prev, letra]);
 
-    // Se a letra não existir na palavra, soma erro.
     if (!palavra.includes(letra)) {
-      setErros((valorAnterior) => valorAnterior + 1);
+      setErros((prev) => prev + 1);
     }
 
-    // Limpa o input após a tentativa.
     setEntrada("");
   };
 
@@ -73,72 +54,82 @@ export default function Hangman() {
     setEntrada("");
   };
 
-  // Verifica se todas as letras da palavra já foram descobertas.
   const venceu = palavra.split("").every((l) => letras.includes(l));
-
-  // Verifica se o limite de erros foi atingido.
   const perdeu = erros >= maxErros;
 
+  const letrasCorretas = letras.filter((l) => palavra.includes(l));
+  const letrasErradas = letras.filter((l) => !palavra.includes(l));
+
   return (
-    <div className="bg-[#ffd685] p-8 rounded-xl shadow-xl text-center w-[400px]">
-      <h2 className="text-2xl mb-4">Jogo da Forca</h2>
+    <div className={styles.container}>
+      <h2 className={styles.title}>Jogo da Forca</h2>
+
+      {/* SVG Forca */}
+      <svg width="120" height="160" className={styles.forca}>
+        <line x1="10" y1="150" x2="110" y2="150" stroke="black" />
+        <line x1="30" y1="150" x2="30" y2="20" stroke="black" />
+        <line x1="30" y1="20" x2="80" y2="20" stroke="black" />
+        <line x1="80" y1="20" x2="80" y2="40" stroke="black" />
+
+        {erros > 0 && <circle cx="80" cy="50" r="10" stroke="black" fill="none" />}
+        {erros > 1 && <line x1="80" y1="60" x2="80" y2="100" stroke="black" />}
+        {erros > 2 && <line x1="80" y1="70" x2="65" y2="85" stroke="black" />}
+        {erros > 3 && <line x1="80" y1="70" x2="95" y2="85" stroke="black" />}
+        {erros > 4 && <line x1="80" y1="100" x2="65" y2="120" stroke="black" />}
+        {erros > 5 && <line x1="80" y1="100" x2="95" y2="120" stroke="black" />}
+      </svg>
 
       {/* Palavra */}
-      <div className="flex justify-center gap-2 text-3xl mb-6">
+      <div className={styles.palavra}>
         {palavra.split("").map((letra, i) => (
-          <span key={i} className="border-b-2 w-8 text-center">
+          <span key={i} className={styles.letra}>
             {letras.includes(letra) || perdeu ? letra : "_"}
           </span>
         ))}
       </div>
 
-      {/* Tentativas */}
-      <p className="mb-2">
+      <p className={styles.erros}>
         Erros: {erros} / {maxErros}
       </p>
 
-      {/* Letras usadas */}
-      <p className="mb-4">
-        Letras usadas: {letras.join(", ")}
-      </p>
+      {/* Letras */}
+      <div className={styles.letrasBox}>
+        <p>
+          <span className={styles.correta}>✔ Corretas:</span>
+          {letrasCorretas.map((l, i) => (
+            <span key={i} className={styles.letraCorreta}>{l}</span>
+          ))}
+        </p>
+
+        <p>
+          <span className={styles.errada}>✖ Erradas:</span>
+          {letrasErradas.map((l, i) => (
+            <span key={i} className={styles.letraErrada}>{l}</span>
+          ))}
+        </p>
+      </div>
 
       {/* Input */}
       {!venceu && !perdeu && (
-        <div className="flex gap-2 justify-center">
+        <div className={styles.inputArea}>
           <input
             value={entrada}
             maxLength={1}
             onChange={(e) => setEntrada(e.target.value)}
-            className="border text-black p-2 w-12 text-center rounded"
+            onKeyDown={(e) => e.key === "Enter" && adivinhar()}
+            className={styles.input}
           />
 
-          <button
-            onClick={adivinhar}
-            className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-400"
-          >
+          <button onClick={adivinhar} className={styles.botao}>
             Enviar
           </button>
         </div>
       )}
 
-      {/* Vitória */}
-      {venceu && (
-        <div className="mt-4 text-green-400 font-bold">
-          🎉 Parabéns! Você venceu!
-        </div>
-      )}
+      {venceu && <p className={styles.vitoria}>🎉 Você venceu!</p>}
+      {perdeu && <p className={styles.derrota}>❌ Você Perdeu! Palavra: {palavra}</p>}
 
-      {/* Derrota */}
-      {perdeu && (
-        <div className="mt-4 text-red-400 font-bold">
-          ❌ Você perdeu! Palavra: {palavra}
-        </div>
-      )}
-
-      <button
-        onClick={reiniciar}
-        className="mt-6 bg-yellow-400 text-black px-4 py-2 rounded hover:bg-yellow-300"
-      >
+      <button onClick={reiniciar} className={styles.reset}>
         Reiniciar
       </button>
     </div>

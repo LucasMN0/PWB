@@ -1,0 +1,41 @@
+.main {
+  min-height: 100vh;
+  background-color: #ece8b7;
+  color: #111a68;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+}
+
+.link {
+  margin-bottom: 2rem;
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: opacity 0.2s;
+}
+
+.link:hover {
+  opacity: 0.7;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.gameWrapper {
+  display: flex;
+  justify-content: center;
+}

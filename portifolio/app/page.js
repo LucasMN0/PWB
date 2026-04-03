@@ -1,49 +1,14 @@
-// app/page.js
 import Link from "next/link";
-
-/**
- * =====================================================
- * PÁGINA INICIAL DO PORTFÓLIO
- * =====================================================
- * Esta página é a home do seu portfólio.
- * Ela foi construída inspirada no estilo visual da imagem
- * que você enviou: fundo claro, títulos grandes, blocos
- * bem espaçados e visual elegante.
- *
- * ESTRUTURA GERAL DESTA PÁGINA:
- * 1. Navbar
- * 2. Hero (apresentação principal)
- * 3. Sobre mim
- * 4. Projetos
- * 5. Contato
- *
- * OBSERVAÇÃO:
- * Para funcionar em um projeto real Next.js, este arquivo
- * deve ficar dentro de app/page.js.
- */
 export default function HomePage() {
-  /**
-   * -----------------------------------------------------
-   * VARIÁVEIS PRINCIPAIS DO PORTFÓLIO
-   * -----------------------------------------------------
-   * Essas constantes guardam textos usados na tela.
-   * Isso ajuda a manter o código organizado e facilita
-   * alterações futuras.
-   */
 
-  // Nome exibido no topo e na apresentação principal.
   const nome = "Lucas Mendes Nóbrega";
 
-  // Título principal do hero.
-  const cargo = "Computer Science Student & Backend Developer";
+  const cargo = "Estudante de Ciência da Computação & Desenvolvedor Backend";
 
-  // Linha menor abaixo do título principal.
   const localizacao = "Baseado em Recife, Brasil, com foco em backend, lógica, estrutura de dados e resolução de problemas.";
 
-  // Texto principal da seção sobre mim.
   const descricaoSobre ="Sou estudante de Ciência da Computação com foco em desenvolvimento backend e Programação Orientada a Objetos (POO). Tenho experiência com Java, Python e desenvolvimento web, além de forte interesse em estruturas de dados, algoritmos e construção de sistemas bem estruturados. Busco constantemente aprimorar minhas habilidades por meio de projetos práticos, com atenção à organização de código, resolução de problemas e boas práticas de desenvolvimento.";
   
-  // Lista de qualidades observadas no seu perfil.
   const qualidades = [
     "Raciocínio lógico e resolução de problemas",
     "Organização e estruturação de código",
@@ -53,7 +18,6 @@ export default function HomePage() {
     "Interesse em algoritmos e estruturas de dados",
   ];
 
-  // Linha do tempo / trajetória resumida.
   const experiencias = [
     {
       periodo: "2024 – Atual",
@@ -72,7 +36,6 @@ export default function HomePage() {
     },
   ];
 
-  // Lista de projetos mostrados na seção de trabalhos.
   const projetos = [
     {
       titulo: "Jogo da Forca",
@@ -108,7 +71,6 @@ export default function HomePage() {
     },
   ];
 
-  // Informações de contato exibidas no rodapé da página.
   const contato = {
     email: "lucasmn04@gmail.com",
     github: "github.com/LucasMN0",
@@ -117,7 +79,6 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen bg-[#ece8b7] text-[#111a68]">
-      {/* ========================= NAVBAR ========================= */}
       <header>
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-8 py-8 lg:px-14">
           <h1 className="text-lg font-extrabold">{nome}</h1>
@@ -127,28 +88,27 @@ export default function HomePage() {
               Home
             </a>
             <a href="#about" className="hover:opacity-70">
-              About
+              Sobre
             </a>
             <a href="#work" className="hover:opacity-70">
-              Work
+              Trabalhos
             </a>
             <a href="#Skills" className="hover:opacity-70">
               Skills
             </a>
             <a href="#contact" className="hover:opacity-70">
-              Contact
+              Contatos
             </a>
           </div>
         </nav>
       </header>
     
-      {/* ========================= HERO ========================= */}
       <section
         id="home"
         className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-8 pb-24 pt-8 lg:grid-cols-2 lg:px-14"
       >
         <div>
-          <p className="mb-4 text-2xl font-semibold">Hello, I’m {nome},</p>
+          <p className="mb-4 text-2xl font-semibold">Olá, meu nome é {nome},</p>
 
           <h2 className="max-w-xl text-5xl font-black leading-none md:text-7xl">
             {cargo}
@@ -161,15 +121,11 @@ export default function HomePage() {
               href="#work"
               className="rounded-md border-2 border-[#b7aa3d] bg-[#efe474] px-6 py-3 text-sm font-bold shadow-[4px_4px_0px_#c5b84a] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
             >
-              Resume
+              Currículo
             </a>
           </div>
         </div>
 
-        {/*
-          Bloco visual da foto.
-          Depois você pode substituir por uma imagem sua real.
-        */}
         <div className="relative mx-auto flex w-full max-w-md items-center justify-center">
           <div className="absolute right-8 top-8 text-4xl font-black text-[#7b7429]">+</div>
           <div className="absolute right-2 top-16 text-4xl font-black text-[#7b7429]">+</div>
@@ -189,10 +145,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ========================= ABOUT ========================= */}
       <section id="about" className="mx-auto max-w-7xl px-8 py-10 lg:px-14">
         <h2 className="mb-8 text-5xl font-black text-[#efe474] md:text-7xl">
-          about.
+          Sobre.
         </h2>
 
         <p className="max-w-4xl text-base leading-9 md:text-xl">{descricaoSobre}</p>
@@ -226,10 +181,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ========================= WORK / PROJETOS ========================= */}
       <section id="work" className="mx-auto max-w-7xl px-8 py-20 lg:px-14">
         <h2 className="mb-8 text-5xl font-black text-[#efe474] md:text-7xl">
-          work.
+          Trabalhos.
         </h2>
 
         <p className="mb-12 max-w-4xl text-base leading-9 md:text-xl">
@@ -279,7 +233,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ========================= SKILLS ========================= */}
       <section id='Skills' className="mx-auto max-w-7xl px-8 py-10 lg:px-14">
         <h2 className="mb-12 text-5xl font-black text-[#efe474] md:text-7xl">
           skills.
@@ -321,10 +274,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ========================= CONTACT ========================= */}
       <section id="contact" className="mx-auto max-w-7xl px-8 pb-20 pt-8 lg:px-14">
         <h2 className="mb-8 text-5xl font-black text-[#efe474] md:text-7xl">
-          contact.
+          Contatos.
         </h2>
 
         <div className="grid grid-cols-1 gap-10 md:grid-cols-[320px_1fr]">
@@ -377,7 +329,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* ========================= NAVBAR ========================= */}
+
       <header>
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-8 py-8 lg:px-14">
 
@@ -386,16 +338,16 @@ export default function HomePage() {
               Home
             </a>
             <a href="#about" className="hover:opacity-70">
-              About
+              Sobre
             </a>
             <a href="#work" className="hover:opacity-70">
-              Work
+              Trabalhos
             </a>
             <a href="#Skills" className="hover:opacity-70">
               Skills
             </a>
             <a href="#contact" className="hover:opacity-70">
-              Contact
+              Contatos
             </a>
           </div>
         </nav>
