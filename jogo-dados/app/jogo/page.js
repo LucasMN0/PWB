@@ -110,7 +110,6 @@ export default function JogoDados() {
             </button>
           </div>
 
-             {/* Placar */}
           <div style={styles.score}>
             <h2>Placar</h2>
 
@@ -121,7 +120,6 @@ export default function JogoDados() {
             <p><strong>Jogador 1:</strong> {score1}</p>
             <p><strong>Jogador 2:</strong> {score2}</p>
 
-            {/* ✅ Botão só aparece no final */}
             {gameOver && (
               <button onClick={resetGame} style={styles.reset}>
                 Jogar Novamente
@@ -129,8 +127,6 @@ export default function JogoDados() {
             )}
           </div>
 
-
-            {/* Jogador 2 */}
           <div style={styles.player}>
             <h2>Jogador 2</h2>
 
