@@ -69,6 +69,22 @@ export default function HomePage() {
       textoBotao: "Ver projeto",
       externo: true,
     },
+        {
+      titulo: "AWARDLY",
+      descricao:
+        "Rede social para fãs de cinema com sistema de avaliação Oscar, feed colaborativo e rankings globais.Tech: Next.js, React, Parse.",
+      href: "https://github.com/LucasMN0/Awardly/tree/main",
+      textoBotao: "Ver projeto",
+      externo: true,
+    },
+    {
+      titulo: "Tradutor de Libras",
+      descricao:
+        "Solução inclusiva para aprendizado de Libras usando IA para classificação de dados, com foco em usabilidade e impacto social.",
+      href: "https://github.com/LucasMN0/Projeto-Tradutor-Libras",
+      textoBotao: "Ver projeto",
+      externo: true,
+    },
   ];
 
   const contato = {
